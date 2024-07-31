@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <?php
-        echo '<script src="https://cdn.tailwindcss.com"></script>'
+    echo '<script src="https://cdn.tailwindcss.com"></script>'
     ?>
 
     <div class="flex flex-col min-h-dvh bg-background">
         <header class="px-4 lg:px-6 h-14 flex items-center">
-            <a class="flex items-center justify-center" href="#">
+            <a class="flex items-center justify-center text-yellow-500" href="/jewellary/user">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6">
                     <path d="M6 3h12l4 6-10 13L2 9Z"></path>
                     <path d="M11 3 8 9l4 13 4-13-3-6"></path>
                     <path d="M2 9h20"></path>
                 </svg>
-                <span class="sr-only">Jewellery Co.</span>
+                <span class="text-xl font-bold">&nbsp;Jewellery Co.</span>
             </a>
-            <nav class="ml-auto flex gap-4 sm:gap-6">
-                <a class="text-sm font-medium hover:underline underline-offset-4" href="#">Collections</a>
-                <a class="text-sm font-medium hover:underline underline-offset-4" href="#">About</a>
-                <a class="text-sm font-medium hover:underline underline-offset-4" href="#">Contact</a>
+            <nav class="ml-auto flex flex-row justify-end items-center gap-4 sm:gap-6">
+                <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewellary/user/collections.php">
+                    Collections
+                </a>
+                <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewellary/user/profile.php">
+                    Profile
+                </a>
+                <span class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10 border shadow-lg shadow-slate-900">
+                    <img src="https://th.bing.com/th/id/OIP.Ez0Esjo5uWlyNOZ4elkWRwHaHW?rs=1&pid=ImgDetMain" class="flex h-full w-full items-center justify-center rounded-full bg-muted"></img>
+                </span>
             </nav>
         </header>
-        
+
         <main class="flex-1">
             <section class="w-full py-12 md:py-28 lg:py-28 w-full m-auto">
                 <div class="container grid gap-8 px-4 md:px-6 w-full m-auto">
@@ -41,7 +49,7 @@
                                 <p class="text-muted-foreground">123 Main St, Anytown USA</p>
                             </div>
                             <button class="inline-flex bg-black text-white items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8">
-                              Logout &rarr;
+                                Logout &rarr;
                             </button>
                         </div>
                         <div class="border rounded-lg overflow-hidden">
@@ -63,7 +71,7 @@
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">ORD001</td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                                                 <div class="flex items-center gap-4">
-                                                    <img src="https://th.bing.com/th/id/OIP.bFZADjbnx-mkVm142G4SKwAAAA?rs=1&pid=ImgDetMain" width="64" height="64" alt="Platinum Ring" class="rounded-md" style="aspect-ratio:64/64;object-fit:cover"/>
+                                                    <img src="https://th.bing.com/th/id/OIP.bFZADjbnx-mkVm142G4SKwAAAA?rs=1&pid=ImgDetMain" width="64" height="64" alt="Platinum Ring" class="rounded-md" style="aspect-ratio:64/64;object-fit:cover" />
                                                     <div>Platinum Ring</div>
                                                 </div>
                                             </td>
@@ -87,7 +95,7 @@
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">ORD002</td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                                                 <div class="flex items-center gap-4">
-                                                    <img src="https://th.bing.com/th/id/OIP.bFZADjbnx-mkVm142G4SKwAAAA?rs=1&pid=ImgDetMain" width="64" height="64" alt="Platinum Ring" class="rounded-md" style="aspect-ratio:64/64;object-fit:cover"/>
+                                                    <img src="https://th.bing.com/th/id/OIP.bFZADjbnx-mkVm142G4SKwAAAA?rs=1&pid=ImgDetMain" width="64" height="64" alt="Platinum Ring" class="rounded-md" style="aspect-ratio:64/64;object-fit:cover" />
                                                     <div>Platinum Ring</div>
                                                 </div>
                                             </td>
@@ -111,7 +119,7 @@
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">ORD003</td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                                                 <div class="flex items-center gap-4">
-                                                    <img src="https://th.bing.com/th/id/OIP.bFZADjbnx-mkVm142G4SKwAAAA?rs=1&pid=ImgDetMain" width="64" height="64" alt="Platinum Ring" class="rounded-md" style="aspect-ratio:64/64;object-fit:cover"/>
+                                                    <img src="https://th.bing.com/th/id/OIP.bFZADjbnx-mkVm142G4SKwAAAA?rs=1&pid=ImgDetMain" width="64" height="64" alt="Platinum Ring" class="rounded-md" style="aspect-ratio:64/64;object-fit:cover" />
                                                     <div>Platinum Ring</div>
                                                 </div>
                                             </td>
@@ -148,4 +156,5 @@
         </footer>
     </div>
 </body>
+
 </html>
