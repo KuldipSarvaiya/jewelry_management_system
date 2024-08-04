@@ -24,10 +24,10 @@
         <span class="text-xl font-bold">&nbsp;Jewellery Co.</span>
       </a>
       <nav class="ml-auto flex flex-row justify-end items-center gap-4 sm:gap-6">
-        <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewellary/user/collections.php">
+        <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewelry_management_system/user/collections.php">
           Collections
         </a>
-        <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewellary/user/profile.php">
+        <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewelry_management_system/user/profile.php">
           Profile
         </a>
         <span class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10 border shadow-lg shadow-slate-900">
@@ -50,7 +50,7 @@
                 of fine jewellery.
               </p>
               <div class="space-x-4">
-                <a class="inline-flex h-9 bg-black text-white items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus:ring-1 focus:ring-ring disabled:pointer-events-none disabled:opacity-50" href="/jewellary/user/collections.php">
+                <a class="inline-flex h-9 bg-black text-white items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus:ring-1 focus:ring-ring disabled:pointer-events-none disabled:opacity-50" href="/jewelry_management_system/user/collections.php">
                   Explore Collections
                 </a>
               </div>
@@ -123,7 +123,7 @@
             </p>
           </div>
           <div class="mx-auto w-full max-w-sm space-y-2">
-            <a class="inline-flex bg-black text-white h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus:ring-1 focus:ring-ring disabled:pointer-events-none disabled:opacity-50" href="/jewellary/user/collections.php">
+            <a class="inline-flex bg-black text-white h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus:ring-1 focus:ring-ring disabled:pointer-events-none disabled:opacity-50" href="/jewelry_management_system/user/collections.php">
               Shop Now
             </a>
           </div>

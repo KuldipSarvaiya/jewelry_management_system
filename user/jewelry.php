@@ -14,7 +14,7 @@
 
   <div class="flex flex-col min-h-dvh bg-background">
     <header class="px-4 lg:px-6 h-14 flex items-center">
-      <a class="flex items-center justify-center text-yellow-500" href="/jewellary/user">
+      <a class="flex items-center justify-center text-yellow-500" href="/jewelry_management_system/user">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6">
           <path d="M6 3h12l4 6-10 13L2 9Z"></path>
           <path d="M11 3 8 9l4 13 4-13-3-6"></path>
@@ -23,10 +23,10 @@
         <span class="text-xl font-bold">&nbsp;Jewellery Co.</span>
       </a>
       <nav class="ml-auto flex flex-row justify-end items-center gap-4 sm:gap-6">
-        <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewellary/user/collections.php">
+        <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewelry_management_system/user/collections.php">
           Collections
         </a>
-        <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewellary/user/profile.php">
+        <a class="text-lg font-medium hover:underline underline-offset-4" href="/jewelry_management_system/user/profile.php">
           Profile
         </a>
         <span class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10 border shadow-lg shadow-slate-900">
@@ -78,7 +78,7 @@
                 Order Now
               </button>
               <br><br><br><br><br><br>
-              <a href="/jewellary/user/collections.php" class="my-10 p-2 rounded-md bg-black text-white ">
+              <a href="/jewelry_management_system/user/collections.php" class="my-10 p-2 rounded-md bg-black text-white ">
                 &larr; Go Back
               </a>
             </div>

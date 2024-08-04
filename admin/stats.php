@@ -1,34 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    * {
-      @apply border-border;
-    }
-
-    body {
-      @apply bg-background text-foreground font-body;
-    }
-
-    .text-foreground {
-      color: #E7E7E4;
-    }
-
-    .bg-background {
-      background-color: #0F0F10;
-    }
-
-    .text-card-foreground {
-      background-color: #18181B;
-    }
-  </style>
-</head>
-
-<body>
   <?php
   echo '<script src="https://cdn.tailwindcss.com"></script>'
   ?>
@@ -40,7 +9,7 @@
         <p class="text-sm text-muted-foreground">234</p>
       </div>
       <div class="flex items-center p-6">
-        <a class="text-primary" href="#" rel="ugc">
+        <a class="text-primary" href="/jewelry_management_system/admin/product" rel="ugc">
           View Products
         </a>
       </div>
@@ -51,7 +20,7 @@
         <p class="text-sm text-muted-foreground">1,234</p>
       </div>
       <div class="flex items-center p-6">
-        <a class="text-primary" href="#" rel="ugc">
+        <a class="text-primary" href="/jewelry_management_system/admin/order" rel="ugc">
           View Orders
         </a>
       </div>
@@ -62,7 +31,7 @@
         <p class="text-sm text-muted-foreground">45</p>
       </div>
       <div class="flex items-center p-6">
-        <a class="text-primary" href="#" rel="ugc">
+        <a class="text-primary" href="/jewelry_management_system/admin/category" rel="ugc">
           View Categories
         </a>
       </div>
@@ -73,13 +42,9 @@
         <p class="text-sm text-muted-foreground">78</p>
       </div>
       <div class="flex items-center p-6">
-        <a class="text-primary" href="#" rel="ugc">
+        <a class="text-primary" href="/jewelry_management_system/admin/user" rel="ugc">
           View Users
         </a>
       </div>
     </div>
   </div>
-
-</body>
-
-</html>
