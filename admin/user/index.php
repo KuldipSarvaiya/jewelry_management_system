@@ -1,5 +1,11 @@
 <html>
 
+<?php
+require_once("../../connect_db.php");
+include("../protect.php");
+?>
+
+
 <head>
   <title>Acme Jewelry</title>
   <link rel="stylesheet" href="../styles.css">
