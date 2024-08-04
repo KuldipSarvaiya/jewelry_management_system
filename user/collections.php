@@ -58,7 +58,7 @@
             <h3 class="text-lg font-semibold">Platinum Ring</h3>
             <p class="text-muted-foreground">Size: 6</p>
             <p class="text-muted-foreground">Material: Platinum</p>
-            <p class="text-lg font-semibold">$1,499</p>
+            <p class="text-lg font-semibold">₹1,499</p>
           </div>
           <a href="/jewelry_management_system/user/jewelry.php" class="bg-black text-white rounded-md w-full p-1 text-center hover:tracking-widest hover:scale-105">
             View Details
@@ -72,7 +72,7 @@
             <h3 class="text-lg font-semibold">Gold Necklace</h3>
             <p class="text-muted-foreground">Length: 18 inches</p>
             <p class="text-muted-foreground">Material: 14k Gold</p>
-            <p class="text-lg font-semibold">$799</p>
+            <p class="text-lg font-semibold">₹799</p>
           </div>
           <a href="/jewelry_management_system/user/jewelry.php" class="bg-black text-white rounded-md w-full p-1 text-center hover:tracking-widest hover:scale-105">
             View Details
@@ -86,7 +86,7 @@
             <h3 class="text-lg font-semibold">Silver Earrings</h3>
             <p class="text-muted-foreground">Size: Small</p>
             <p class="text-muted-foreground">Material: Sterling Silver</p>
-            <p class="text-lg font-semibold">$149</p>
+            <p class="text-lg font-semibold">₹149</p>
           </div>
           <a href="/jewelry_management_system/user/jewelry.php" class="bg-black text-white rounded-md w-full p-1 text-center hover:tracking-widest hover:scale-105">
             View Details
@@ -100,7 +100,7 @@
             <h3 class="text-lg font-semibold">Gold Bracelet</h3>
             <p class="text-muted-foreground">Size: 7 inches</p>
             <p class="text-muted-foreground">Material: 18k Gold</p>
-            <p class="text-lg font-semibold">$1,099</p>
+            <p class="text-lg font-semibold">₹1,099</p>
           </div>
           <a href="/jewelry_management_system/user/jewelry.php" class="bg-black text-white rounded-md w-full p-1 text-center hover:tracking-widest hover:scale-105">
             View Details
@@ -114,7 +114,7 @@
             <h3 class="text-lg font-semibold">Diamond Pendant</h3>
             <p class="text-muted-foreground">Length: 16 inches</p>
             <p class="text-muted-foreground">Material: 14k Gold, Diamond</p>
-            <p class="text-lg font-semibold">$2,499</p>
+            <p class="text-lg font-semibold">₹2,499</p>
           </div>
           <a href="/jewelry_management_system/user/jewelry.php" class="bg-black text-white rounded-md w-full p-1 text-center hover:tracking-widest hover:scale-105">
             View Details
@@ -128,7 +128,7 @@
             <h3 class="text-lg font-semibold">Silver Necklace</h3>
             <p class="text-muted-foreground">Length: 20 inches</p>
             <p class="text-muted-foreground">Material: Sterling Silver</p>
-            <p class="text-lg font-semibold">$299</p>
+            <p class="text-lg font-semibold">₹299</p>
           </div>
           <a href="/jewelry_management_system/user/jewelry.php" class="bg-black text-white rounded-md w-full p-1 text-center hover:tracking-widest hover:scale-105">
             View Details
@@ -142,7 +142,7 @@
             <h3 class="text-lg font-semibold">Gold Earrings</h3>
             <p class="text-muted-foreground">Size: Medium</p>
             <p class="text-muted-foreground">Material: 14k Gold</p>
-            <p class="text-lg font-semibold">$399</p>
+            <p class="text-lg font-semibold">₹399</p>
           </div>
           <a href="/jewelry_management_system/user/jewelry.php" class="bg-black text-white rounded-md w-full p-1 text-center hover:tracking-widest hover:scale-105">
             View Details
@@ -156,7 +156,7 @@
             <h3 class="text-lg font-semibold">Platinum Bracelet</h3>
             <p class="text-muted-foreground">Size: 6.5 inches</p>
             <p class="text-muted-foreground">Material: Platinum</p>
-            <p class="text-lg font-semibold">$1,799</p>
+            <p class="text-lg font-semibold">₹1,799</p>
           </div>
           <a href="/jewelry_management_system/user/jewelry.php" class="bg-black text-white rounded-md w-full p-1 text-center hover:tracking-widest hover:scale-105">
             View Details

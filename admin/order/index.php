@@ -56,7 +56,7 @@
                         Customer
                       </th>
                       <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                        Product
+                        Jewelry
                       </th>
                       <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
                         Date
@@ -80,9 +80,14 @@
                         </a>
                       </td>
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Bob Johnson</td>
-                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Simple Ring</td>
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                        <div class="flex items-center gap-4">
+                          <img src="https://th.bing.com/th/id/OIP.bFZADjbnx-mkVm142G4SKwAAAA?rs=1&pid=ImgDetMain" width="64" height="64" alt="Platinum Ring" class="rounded-md" style="aspect-ratio:64/64;object-fit:cover" />
+                          <div>Platinum Ring</div>
+                        </div>
+                      </td>
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-13</td>
-                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">$300.00</td>
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">₹300.00</td>
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
                         <div class="inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2" data-v0-t="badge">
                           Cancelled

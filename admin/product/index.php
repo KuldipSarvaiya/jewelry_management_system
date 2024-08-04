@@ -52,44 +52,33 @@
                 <table class="w-full caption-bottom text-sm">
                   <thead class="[&amp;_tr]:border-b">
                     <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                        Order ID
-                      </th>
-                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                        Customer
-                      </th>
-                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                        Product
-                      </th>
-                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                        Date
-                      </th>
-                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                        Total
-                      </th>
-                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                        Status
-                      </th>
-                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                        Action
-                      </th>
+                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">#</th>
+                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Jewelry</th>
+                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Size</th>
+                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Material</th>
+                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Price</th>
+                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Category</th>
+                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Quantity</th>
+                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Description</th>
+                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Action</th>
                     </tr>
                   </thead>
                   <tbody class="[&amp;_tr:last-child]:border-0">
                     <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">1</td>
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                        <a class="font-medium" href="#" rel="ugc">
-                          #125
-                        </a>
-                      </td>
-                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Bob Johnson</td>
-                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Simple Ring</td>
-                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-13</td>
-                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">$300.00</td>
-                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                        <div class="inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2" data-v0-t="badge">
-                          Cancelled
+                        <div class="flex items-center gap-4">
+                          <img src="https://th.bing.com/th/id/OIP.bFZADjbnx-mkVm142G4SKwAAAA?rs=1&pid=ImgDetMain" width="64" height="64" alt="Platinum Ring" class="rounded-md" style="aspect-ratio:64/64;object-fit:cover" />
+                          <div>Platinum Ring</div>
                         </div>
+                      </td>
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">15mm</td>
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Gold</td>
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">₹5000</td>
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Ring</td>
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">232</td>
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                        <div class="max-w-[300px]">this is the ring, a round round ring, its made og gold</div>
                       </td>
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
                         <div class="flex items-center gap-4">

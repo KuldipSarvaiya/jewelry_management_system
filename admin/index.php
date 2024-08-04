@@ -129,7 +129,7 @@
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Bob Johnson</td>
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Simple Ring</td>
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-13</td>
-                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">$300.00</td>
+                      <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">₹300.00</td>
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
                         <div class="inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2" data-v0-t="badge">
                           Cancelled

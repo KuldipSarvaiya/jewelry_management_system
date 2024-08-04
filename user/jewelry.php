@@ -47,7 +47,7 @@
                 <h2 class="text-3xl font-bold tracking-tighter">Platinum Ring</h2>
                 <p class="text-muted-foreground">Size: 6</p>
                 <p class="text-muted-foreground">Material: Platinum</p>
-                <p class="text-3xl font-bold">$1,499</p>
+                <p class="text-3xl font-bold">₹1,499</p>
               </div>
               <div class="prose">
                 <p>

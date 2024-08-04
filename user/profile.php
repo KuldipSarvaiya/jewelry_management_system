@@ -76,7 +76,7 @@
                                                 </div>
                                             </td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">6</td>
-                                            <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">$1499.00</td>
+                                            <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">₹1499.00</td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">1</td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                                                 <div class="bg-green-400/20 border-green-500 inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2" data-v0-t="badge">Accepted</div>
@@ -100,7 +100,7 @@
                                                 </div>
                                             </td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">6</td>
-                                            <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">$1499.00</td>
+                                            <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">₹1499.00</td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">1</td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                                                 <div class="bg-orange-400/20 border-orange-500 inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2" data-v0-t="badge">Shiped</div>
@@ -124,7 +124,7 @@
                                                 </div>
                                             </td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">6</td>
-                                            <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">$1499.00</td>
+                                            <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">₹1499.00</td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">1</td>
                                             <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                                                 <div class="bg-red-400/20 border-red-500 inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2" data-v0-t="badge">Canceled</div>
