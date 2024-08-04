@@ -89,7 +89,7 @@
                             </svg>
                             <span class="sr-only">View</span>
                           </a>
-                          <a class="text-muted-foreground hover:text-foreground hover:text-orange-400 scale-125" href="add.php">
+                          <a class="text-muted-foreground hover:text-foreground hover:text-orange-400 scale-125" href="edit.php">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
                               <path d="M12 22h6a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v10"></path>
                               <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>

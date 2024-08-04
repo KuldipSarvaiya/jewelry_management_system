@@ -1,7 +1,7 @@
 <?php
 ?>
 
-<aside class="bg-background border-r border-muted/40 hidden lg:block">
+<aside class="bg-background border-r border-muted/40 block">
   <div class="flex flex-col h-full max-h-screen">
     <div class="flex items-center h-16 border-b border-muted/40 px-6">
       <span class="flex items-center gap-2 font-semibold text-yellow-500 word-nowrap cursor-none">
