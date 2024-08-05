@@ -103,14 +103,14 @@ include("../protect.php");
                       </td>
                       <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
                         <div class="flex items-center gap-4">
-                          <a class="text-muted-foreground hover:text-foreground hover:text-blue-400 scale-150" href="edit.php?viewonly=yes">
+                          <a class="text-muted-foreground hover:text-foreground hover:text-blue-400 scale-150" href="edit.php?id=<?php echo $data[0]; ?>&viewonly=yes">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
                               <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
                               <circle cx="12" cy="12" r="3"></circle>
                             </svg>
                             <span class="sr-only">View</span>
                           </a>
-                          <a class="text-muted-foreground hover:text-foreground hover:text-orange-400 scale-125" href="edit.php">
+                          <a class="text-muted-foreground hover:text-foreground hover:text-orange-400 scale-125" href="edit.php?id=<?php echo $data[0]; ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
                               <path d="M12 22h6a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v10"></path>
                               <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
@@ -118,16 +118,14 @@ include("../protect.php");
                             </svg>
                             <span class="sr-only">Edit</span>
                           </a>
-                          <form action="" class="my-auto">
-                            <button type="submit" class="text-muted-foreground hover:text-foreground hover:text-red-500 scale-125">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-                                <path d="M3 6h18"></path>
-                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-                              </svg>
-                              <span class="sr-only">Delete</span>
-                            </button>
-                          </form>
+                          <a href="?delete_id=<?php echo $data[0]; ?>" type="submit" class="text-muted-foreground hover:text-foreground hover:text-red-500 scale-125">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                              <path d="M3 6h18"></path>
+                              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                              <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                            </svg>
+                            <span class="sr-only">Delete</span>
+                          </a>
                         </div>
                       </td>
                     </tr>

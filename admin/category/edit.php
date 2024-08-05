@@ -4,6 +4,36 @@
 <?php
 require_once("../../connect_db.php");
 include("../protect.php");
+
+
+$view = "no";
+if (isset($_GET['viewonly'])) {
+  $view = $_GET['viewonly'];
+}
+
+$id = $_GET['id'] or die("Category Not Found, Go Back");
+
+
+if (isset($_POST['name'])) {
+  $name = $_POST['name'];
+  $description = $_POST['description'];
+
+  try {
+    $sql = "UPDATE `categories` SET `name`='$name',`description`='$description' WHERE `id` = '$id'";
+    if ($conn->query($sql) === TRUE) {
+      echo "<script>alert('New category Updated successfully')</script>";
+      header("location:/jewelry_management_system/admin/category");
+    }
+  } catch (\Throwable $th) {
+    echo "<script>alert('Failed To Update Category')</script>";
+  }
+}
+
+
+$sql = "SELECT * FROM `categories` where `id` = '$id'";
+$result = mysqli_query($conn, $sql);
+$data = mysqli_fetch_row($result);
+
 ?>
 
 <head>
@@ -63,29 +93,36 @@ include("../protect.php");
     <main class="w-full flex flex-row justify-center items-center">
       <section class="w-6/12 py-12 md:py-24 lg:py-24 bg-muted flex items-center justify-center">
         <div class="container rounded-lg flex flex-col items-center gap-8 px-4 md:px-6 py-5 text-card-foreground">
-          <h2 class="text-2xl font-bold tracking-tight">Update Jewelry Category</h2>
-          <form class="w-full max-w-md space-y-4">
+          <h2 class="text-2xl font-bold tracking-tight">
+            <?php
+            if ($view === "yes") echo "View";
+            else echo "Update "; ?>
+            Jewelry Category
+          </h2>
+          <form action="" method="POST" class="w-full max-w-md space-y-4">
             <div class="grid grid-cols-1 gap-4">
               <div class="space-y-2">
-                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="quantity">
+                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name">
                   Category Name
                 </label>
-                <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="quantity" name="quantity" value="" />
+                <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" <?php if ($view === "yes") echo "disabled"; ?> required id="name" name="name" value="<?php echo $data[1]; ?>" />
               </div>
               <div class="space-y-2">
                 <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="description">
                   Description
                 </label>
-                <textarea class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="description" name="description"></textarea>
+                <textarea class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" <?php if ($view === "yes") echo "disabled"; ?> required id="description" name="description"><?php echo $data[2]; ?></textarea>
               </div>
-              <div>
-                <button class="mt-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full bg-white text-black hover:bg-white/90" type="submit">
-                  Update Category
-                </button>
-              </div>
+              <?php if ($view !== "yes") { ?>
+                <div>
+                  <button class="mt-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full bg-white text-black hover:bg-white/90" type="submit">
+                    Update Category
+                  </button>
+                </div>
+              <?php } ?>
           </form>
         </div>
-        <a href="/jewelry_management_system/admin/category">&larr; Discart changes & Go Back</a>
+        <a href="/jewelry_management_system/admin/category">&larr; <?php if ($view !== "yes") echo "Discart changes & "; ?> Go Back</a>
       </section>
     </main>
     <footer class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
