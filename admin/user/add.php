@@ -18,9 +18,9 @@ if (isset($_POST['email'])) {
   try {
     $sql = "INSERT INTO `users`(`role`, `first_name`, `last_name`, `address`, `email`, `password`, `image`) VALUES ('User','$first_name','$last_name','$address','$email','$password','$image')";
     if ($conn->query($sql) === TRUE) {
+      echo "<script>alert('New User created successfully')</script>";
       header("location:/jewelry_management_system/admin/user");
     }
-    echo "<script>alert('New User created successfully')</script>";
   } catch (\Throwable $th) {
     echo "<script>alert('Failed To Create User')</script>";
   }

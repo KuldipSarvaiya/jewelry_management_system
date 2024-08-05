@@ -4,6 +4,39 @@
 <?php
 require_once("../../connect_db.php");
 include("../protect.php");
+
+$view = "no";
+if (isset($_GET['viewonly'])) {
+  $view = $_GET['viewonly'];
+}
+
+$id = $_GET['id'] or die("User Not Found, Go Back");
+
+if (isset($_POST['email'])) {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $first_name = $_POST['first_name'];
+  $last_name = $_POST['last_name'];
+  $address = $_POST['address'];
+  $image = $_POST['image'];
+
+
+  try {
+    $sql = "UPDATE `users` SET `first_name`='$first_name',`last_name`='$last_name',`address`='$address',`email`='$email',`password`='$password',`image`='$image' WHERE id = '$id'";
+    if ($conn->query($sql) === TRUE) {
+      echo "<script>alert('User updated successfully')</script>";
+      header("location:/jewelry_management_system/admin/user");
+    }
+  } catch (\Throwable $th) {
+    echo "<script>alert('Failed To Update User')</script>";
+  }
+}
+
+
+$sql = "SELECT * FROM `users` WHERE id = '$id'";
+$result = mysqli_query($conn, $sql);
+$data = mysqli_fetch_row($result);
+
 ?>
 
 
@@ -64,55 +97,68 @@ include("../protect.php");
     <main class="w-full flex flex-row justify-center items-center">
       <section class="w-6/12 py-12 md:py-24 lg:py-24 bg-muted flex items-center justify-center">
         <div class="container rounded-lg flex flex-col items-center gap-8 px-4 md:px-6 py-5 text-card-foreground">
-          <h2 class="text-2xl font-bold tracking-tight">Update User</h2>
-          <form class="w-full max-w-md space-y-4">
+          <h2 class="text-2xl font-bold tracking-tight">
+            <?php
+            if ($view === "yes")
+              echo "View";
+            else echo "Update";
+            ?>
+            User</h2>
+          <form action="" method="POST" class="w-full max-w-md space-y-4">
             <div class="grid grid-cols-1 gap-4">
               <div class="grid grid-cols-2 gap-4">
                 <div class="space-y-2">
-                  <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="imageUrl">
+                  <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="first_name">
                     First Name
                   </label>
-                  <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="imageUrl" name="imageUrl" value="" />
+                  <input require <?php if ($view === "yes") echo "disabled"; ?> class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="first_name" name="first_name" value="<?php echo $data[2]; ?>" />
                 </div>
                 <div class="space-y-2">
-                  <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="price">
+                  <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="last_name">
                     Last Name
                   </label>
-                  <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="price" name="price" value="" />
+                  <input require <?php if ($view === "yes") echo "disabled"; ?> class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="last_name" name="last_name" value="<?php echo $data[3]; ?>" />
                 </div>
               </div>
               <div class="space-y-2">
-                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="quantity">
+                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">
                   Email
                 </label>
-                <input type="email" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="quantity" name="quantity" value="" />
+                <input require <?php if ($view === "yes") echo "disabled"; ?> type="email" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="email" name="email" value="<?php echo $data[5]; ?>" />
               </div>
               <div class="space-y-2">
-                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="quantity">
+                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="password">
                   Password
                 </label>
-                <input type="password" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="quantity" name="quantity" value="" />
+                <input require <?php if ($view === "yes") echo "disabled"; ?> type="password" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="password" name="password" value="<?php echo $data[6]; ?>" />
               </div>
               <div class="space-y-2">
                 <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="image">
                   Profile Image
                 </label>
-                <input type="image" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="image" name="image" value="" />
+                <input require <?php if ($view === "yes") echo "disabled"; ?> type="text" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="image" name="image" value="<?php echo $data[7]; ?>" />
               </div>
               <div class="space-y-2">
-                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="description">
+                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="address">
                   Address
                 </label>
-                <textarea class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="description" name="description"></textarea>
+                <textarea require <?php if ($view === "yes") echo "disabled"; ?> class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="address" name="address"><?php echo $data[4]; ?></textarea>
               </div>
-              <div>
-                <button class="mt-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full bg-white text-black hover:bg-white/90" type="submit">
-                  Update User
-                </button>
-              </div>
+              <?php if ($view !== "yes") { ?>
+                <div>
+                  <button class="mt-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full bg-white text-black hover:bg-white/90" type="submit">
+                    Update User
+                  </button>
+                </div>
+              <?php } ?>
           </form>
         </div>
-        <a href="/jewelry_management_system/admin/user">&larr; Discart changes & Go Back</a>
+        <a href="/jewelry_management_system/admin/user" ont-bold tracking-tight">
+          &larr;
+          <?php
+          if ($view !== "yes")
+            echo " Discart changes & ";
+          ?> Go Back</a>
       </section>
     </main>
     <footer class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">

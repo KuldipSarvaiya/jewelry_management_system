@@ -98,16 +98,16 @@ include("../protect.php");
                 <select tabindex="-1" name="material" class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
                   <option value="" selected>Select Jewellry Category</option>
                   <!-- these will be dynamic -->
-                  <option value="ring">Ring</option>
-                  <option value="earring">Earring</option>
-                  <option value="bracelet">Bracelet</option>
-                  <option value="pendant">Pendant</option>
-                  <option value="necklace">Necklace</option>
-                  <option value="chain">Chain</option>
-                  <option value="bangle">Bangle</option>
-                  <option value="brooch">Brooch</option>
-                  <option value="crown">Crown</option>
-                  <option value="other">Other</option>
+                  <?php
+
+                  $sqlC = "SELECT name FROM `categories`";
+                  $resultC = mysqli_query($conn, $sqlC);
+
+                  while ($dataC = mysqli_fetch_row($resultC)) {
+
+                  ?>
+                    <option value="<?php echo $dataC[0]; ?>"><?php echo $dataC[0]; ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
