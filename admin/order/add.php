@@ -4,6 +4,57 @@
 <?php
 require_once("../../connect_db.php");
 include("../protect.php");
+
+if (isset($_POST['user_id'])) {
+  $quantity = $_POST['quantity'];
+  $user_id = $_POST['user_id'];
+  $product_id = $_POST['product_id'];
+  $order_date = $_POST['order_date'];
+
+  $sqlP = "SELECT price, quantity AS available_quantity FROM `jewelry` WHERE id = '$product_id'";
+  $resultP = mysqli_query($conn, $sqlP);
+
+  if ($resultP->num_rows > 0) {
+    $dataP = mysqli_fetch_assoc($resultP);
+    $product_price = $dataP['price'];
+    $available_quantity = $dataP['available_quantity'];
+
+    // Check if there's enough stock
+    if ($available_quantity >= $quantity) {
+      $order_total = $product_price * $quantity;
+
+      try {
+        // Begin transaction
+        $conn->begin_transaction();
+
+        $sql = "INSERT INTO `orders`(`user_id`, `order_date`, `product_id`, `quantity`, `order_total`) VALUES ('$user_id','$order_date','$product_id','$quantity','$order_total')";
+        if ($conn->query($sql) === TRUE) {
+          // Update jewelry quantity
+          $new_quantity = $available_quantity - $quantity;
+          $update_sql = "UPDATE `jewelry` SET quantity = '$new_quantity' WHERE id = '$product_id'";
+          if ($conn->query($update_sql) === TRUE) {
+            $conn->commit();
+            echo "<script>alert('New order created successfully')</script>";
+            header("location:/jewelry_management_system/admin/order");
+          } else {
+            $conn->rollback();
+            echo "<script>alert('Failed to update jewelry quantity')</script>";
+          }
+        } else {
+          $conn->rollback();
+          echo "<script>alert('Failed to create order')</script>";
+        }
+      } catch (\Throwable $th) {
+        $conn->rollback();
+        echo "<script>alert('Error: ' . $th->getMessage())</script>";
+      }
+    } else {
+      // Handle insufficient stock scenario
+      echo "<script>alert('Insufficient stock for the product')</script>";
+    }
+  }
+}
+
 ?>
 
 <head>
@@ -54,54 +105,62 @@ include("../protect.php");
         <span class="text-xl font-bold">&nbsp;Jewellery Co.</span>
       </span>
       <div class="flex-1"></div>
-      <span class="text-2xl font-medium mr-1 uppercase">Kuldip Sarvaiya</span>
-      <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground rounded-full border w-11 h-11" type="button" id="radix-:r10:" aria-haspopup="menu" aria-expanded="false" data-state="closed">
-        <img src="https://th.bing.com/th/id/OIP.Ez0Esjo5uWlyNOZ4elkWRwHaHW?rs=1&pid=ImgDetMain" width="50" height="50" class="rounded-full object-cover aspect-square" alt="" />
-      </button>
+      <?php include("../current_user.php") ?>
     </header>
     <main class="w-full flex flex-row justify-center items-center">
       <section class="w-6/12 py-12 md:py-24 lg:py-24 bg-muted flex items-center justify-center">
         <div class="container rounded-lg flex flex-col items-center gap-8 px-4 md:px-6 py-5 text-card-foreground">
           <h2 class="text-2xl font-bold tracking-tight">Place New Order</h2>
-          <form class="w-full max-w-md space-y-4">
+          <form action="" method="POST" class="w-full max-w-md space-y-4">
             <div class="grid grid-cols-1 gap-4">
               <div class="space-y-2">
-                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="quantity">
+                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="user_id">
                   Buyer
                 </label>
-                <select tabindex="-1" name="user_id" class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                <select required id="user_id" name="user_id" class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
                   <option value="" selected>Select Buyer</option>
-                  <option value="1">hasti</option>
-                  <option value="1">hasti1</option>
-                  <option value="2">hasti2</option>
-                  <option value="3">hasti3</option>
-                  <option value="4">hasti4</option>
-                  <option value="5">hasti5</option>
+                  <?php
+
+                  $sqlB = "SELECT id, first_name, last_name FROM `users` WHERE `role` = 'User'";
+                  $resultB = mysqli_query($conn, $sqlB);
+
+                  while ($dataB = mysqli_fetch_row($resultB)) {
+
+                  ?>
+                    <option value="<?php echo $dataB[0]; ?>"><?php echo $dataB[1] . " " . $dataB[2]; ?></option>
+                  <?php } ?>
                 </select>
               </div>
               <div class="space-y-2">
-                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="quantity">
+                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="product_id">
                   Jewelry
                 </label>
-                <select tabindex="-1" name="product_id" class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                <select required id="product_id" name="product_id" class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
                   <option value="" selected>Select Jewellry</option>
-                  <option value="1">ring</option>
-                  <option value="2">bangle</option>
-                  <option value="4">necklace</option>
+                  <?php
+
+                  $sqlC = "SELECT id,name FROM `jewelry`";
+                  $resultC = mysqli_query($conn, $sqlC);
+
+                  while ($dataC = mysqli_fetch_row($resultC)) {
+
+                  ?>
+                    <option value="<?php echo $dataC[0]; ?>"><?php echo $dataC[1]; ?></option>
+                  <?php } ?>
                 </select>
               </div>
               <div class="columns-2">
                 <div class="space-y-2">
-                  <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="quantity">
+                  <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="order_date">
                     Date
                   </label>
-                  <input type="date" class="w-full flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="quantity" name="quantity" value="" />
+                  <input type="date" class="w-full flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" required id="order_date" name="order_date" value="" />
                 </div>
                 <div class="space-y-2">
                   <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="quantity">
                     Quantity
                   </label>
-                  <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="quantity" name="quantity" value="" />
+                  <input type="number" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="quantity" name="quantity" value="" />
                 </div>
               </div>
               <div>
