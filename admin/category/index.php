@@ -11,10 +11,6 @@ if (isset($_GET['delete_id'])) {
   if ($deleted) header("location:/jewelry_management_system/admin/category");
 }
 
-
-  $sql = "SELECT * FROM `categories`";
-  $result = mysqli_query($conn, $sql);
-
 ?>
 
 <head>
@@ -82,11 +78,17 @@ if (isset($_GET['delete_id'])) {
                   <tbody class="[&amp;_tr:last-child]:border-0">
                     <?php
 
+
+                    $sql = "SELECT * FROM `categories`";
+                    $result = mysqli_query($conn, $sql);
+                    $i = 0;
+
                     while ($data = mysqli_fetch_row($result)) {
+                      $i++;
 
                     ?>
                       <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0"><?php echo $data[0]; ?></td>
+                        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0"><?php echo $i; ?></td>
                         <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0"><?php echo $data[1]; ?></td>
                         <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
                           <div class="max-w-[500px]"><?php echo $data[2]; ?></div>

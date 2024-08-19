@@ -5,17 +5,13 @@ require_once("../../connect_db.php");
 include("../protect.php");
 
 
-if(isset($_GET['delete_id'])){
+if (isset($_GET['delete_id'])) {
   $delete_id = $_GET['delete_id'];
   $query = "DELETE FROM `users` WHERE `id` = '$delete_id'";
   $deleted = mysqli_query($conn, $query) or die("Failed to delete the User, GO Back");
-  if($deleted) header("location:/jewelry_management_system/admin/user");
+  if ($deleted) header("location:/jewelry_management_system/admin/user");
 }
 
-
-
-$sql = "SELECT * FROM `users` WHERE role = 'User'";
-$result = mysqli_query($conn, $sql);
 
 ?>
 
@@ -94,11 +90,16 @@ $result = mysqli_query($conn, $sql);
                   <tbody class="[&amp;_tr:last-child]:border-0">
                     <?php
 
+                    $sql = "SELECT * FROM `users` WHERE role = 'User'";
+                    $result = mysqli_query($conn, $sql);
+                    $i = 0;
+
                     while ($data = mysqli_fetch_row($result)) {
+                      $i++;
 
                     ?>
                       <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0"><?php echo $data[0]; ?></td>
+                        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0"><?php echo $i; ?></td>
                         <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
                           <div class="flex items-center gap-4">
                             <img src="<?php echo $data[7]; ?>" width="64" height="64" alt="pic" class="rounded-md" style="aspect-ratio:64/64;object-fit:cover" />

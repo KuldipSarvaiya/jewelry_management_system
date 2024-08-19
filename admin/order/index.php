@@ -12,11 +12,6 @@ if (isset($_GET['delete_id'])) {
   if ($deleted) header("location:/jewelry_management_system/admin/order");
 }
 
-
-
-$sql = "SELECT o.*, j.image, j.name as product_name, u.first_name, u.last_name FROM `orders` o, `jewelry` j, `users` u WHERE j.id = o.product_id AND u.id = o.user_id";
-$result = mysqli_query($conn, $sql);
-
 ?>
 
 <head>
@@ -100,13 +95,19 @@ $result = mysqli_query($conn, $sql);
                   <tbody class="[&amp;_tr:last-child]:border-0">
                     <?php
 
+
+                    $sql = "SELECT o.*, j.image, j.name as product_name, u.first_name, u.last_name FROM `orders` o, `jewelry` j, `users` u WHERE j.id = o.product_id AND u.id = o.user_id";
+                    $result = mysqli_query($conn, $sql);
+                    $i = 0;
+
                     while ($data = mysqli_fetch_row($result)) {
+                      $i++;
 
                     ?>
                       <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
                         <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
                           <a class="font-medium" href="#" rel="ugc">
-                            <?php echo $data[0]; ?>
+                            <?php echo $i; ?>
                           </a>
                         </td>
                         <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0"><?php echo $data[9] . " " . $data[10]; ?></td>
